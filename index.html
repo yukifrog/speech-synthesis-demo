@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブラウザ読み上げデモ</title>
+</head>
+<body>
+
+    <h1>ブラウザ読み上げデモ</h1>
+    <textarea id="text" rows="4" cols="50" placeholder="ここにテキストを入力してください"></textarea><br>
+    <button onclick="readText()">読み上げ</button>
+
+    <script>
+        function readText() {
+            // テキストエリアの内容を取得
+            var text = document.getElementById("text").value;
+            
+            // SpeechSynthesis APIの使用
+            var utterance = new SpeechSynthesisUtterance(text);
+            
+            // 日本語の音声を設定
+            utterance.lang = 'ja-JP';
+            
+            // 音声を読み上げる
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</html>
